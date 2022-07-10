@@ -6,11 +6,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;  // app should listen  to the PORT(dynamically passed) or PORT 5000 if nothing there
 
 //by using scraper api (a webservice that allows for automated retrieval of data from websites) the user is tasked to enter his api to the url link
+// generateScraperUrl is a HTTP method
 const generateScraperUrl = (apikey) => `https://api.scraperapi.com?api_key=${apiKey}&autoparse=true`
 
 app.use(express.json());  //allows application to parse json input (in JSON format)
 
-
+// Route Path for GET hence app.get()
 app.get('/', (req, res) => {
     res.send('Welcome to Nnamdis Personal API.'); //when user enters the url, diplay message
 });
