@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const express = require('express');  // creates a backend application, returns a function reference -> express()
+=======
+const express = require('express');  // creates a backend application
+>>>>>>> c076390ca2b18a4fd5b60ccc51d778039fe7ecdc
 const request = require('request-promise');  // 'request-promise : used for making API requests.
 
 const app = express();  
