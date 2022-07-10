@@ -4,6 +4,7 @@ const request = require('request-promise');  // 'request-promise : used for maki
 const app = express();  
 const PORT = process.env.PORT || 5000;  // app should listen  to the PORT(dynamically passed) or PORT 5000 if nothing there
 
+
 //by using scraper api (a webservice that allows for automated retrieval of data from websites) the user is tasked to enter his api to the url link
 // generateScraperUrl is a HTTP method
 const generateScraperUrl = (apikey) => `https://api.scraperapi.com?api_key=${apiKey}&autoparse=true`
