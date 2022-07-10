@@ -12,16 +12,18 @@ app.use(express.json());  //allows application to parse json input (in JSON form
 
 // Route Path for GET hence app.get()
 app.get('/', (req, res) => {
-    res.send('Welcome to Nnamdis Personal API.'); //when user enters the url, diplay message
+    res.send('Welcome to Nnamdis Personal API.'); //when user enters the url, this message is displayed at first
 });
 
 // GET Product Details
+// product ID is dynamic, hence the column
 app.get('/products/:productId', async(req, res) => {
-    const { productId } = req.params;
+    const { productId } = req.params;  //req.params returns parameters in the matched route, req.params = {productId: "${productId}"}
     const { api_key } = req.query;  // we are getting the API key from here
 
     try {
         //getting a response from scraper API about a specific product
+        //request() is used for making API requests from scraper API and we assign the response
         const response = await request(`${generateScraperUrl(apiKey)}&url=https://www.amazon.com/dp/${productId}`);
 
         res.json(JSON.parse(response));
@@ -74,5 +76,5 @@ app.get('/search/:searchQuery', async(req, res) => {
     }
 });
 
-
+//starts a UNIX socket and listens for connections on the given path
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));  //make the server listen on a specific port
